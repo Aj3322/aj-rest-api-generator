@@ -44,7 +44,9 @@ export const esmFiles = {
     "express-validator": "^7.0.1",
     "swagger-ui-express": "^5.0.0",
     "yamljs": "^0.3.0",
-    "prom-client": "^15.1.3"
+    "prom-client": "^15.1.3",
+    "child_process": "^1.0.2",
+    "process": "^0.11.10"
   },
   "devDependencies": {
     "nodemon": "^3.0.1",
@@ -199,7 +201,7 @@ app.use((err, req, res) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   logger.info(\`🚀 Server running in \${config.env} mode on port \${PORT}\`);
-  console.log(\`📚 API Docs available at: http://localhost:\${PORT}/api/docs\`);
+  console.log(\`📚 API Docs available at: http://localhost:\${PORT}/api-docs\`);
   console.log(\`🩺 Health check available at: http://localhost:\${PORT}/api/health\`);
 });
 
@@ -243,22 +245,51 @@ export default {
   'src/config/database.js': `import mongoose from 'mongoose';
 import config from './index.js';
 import logger from '../utils/logger.js';
+import { execSync } from 'child_process';
+import process from 'process';
 
-// TODO: Configure database connection pooling
-// TODO: Add database transaction support
-// TODO: Implement database migration system
+// Helper function to check if MongoDB is installed
+const isMongoInstalled = () => {
+  try {
+    execSync('mongod --version', { stdio: 'ignore' });
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
+// Helper function to validate MongoDB URI format
+const isValidMongoURI = (uri) => {
+  const regex = /^mongodb(?:\\+srv)?:\\/\\/(?:\\S+@)?[\\w.-]+(:\\d+)?(\\/[\\w.-]+)?/;
+  return regex.test(uri);
+};
 
 const connectDB = async () => {
+  // 1. Check MongoDB Installation
+  if (!isMongoInstalled()) {
+    console.error('❌ MongoDB is not installed or not in PATH. Please install MongoDB.');
+    process.exit(1);
+  }
+
+  // 2. Validate MongoDB URL
+  const mongoURL = config.mongoose?.url;
+  if (!mongoURL || !isValidMongoURI(mongoURL)) {
+    console.error('❌ Invalid or missing MongoDB connection URL. Please check config.mongoose.url.');
+    process.exit(1);
+  }
+
+  // 3. Try to connect
   try {
-    await mongoose.connect(config.mongoose.url, config.mongoose.options);
-    logger.info('Connected to MongoDB');
+    await mongoose.connect(mongoURL, config.mongoose.options);
+    logger.info('✅ Connected to MongoDB');
   } catch (err) {
-    logger.error('MongoDB connection error:', err);
+    logger.error('❌ MongoDB connection error:', err);
     process.exit(1);
   }
 };
 
-export default connectDB;`,
+export default connectDB;
+`,
   'src/utils/logger.js': `import winston from 'winston';
 import path from 'path';
 import config from '../config/index.js';
