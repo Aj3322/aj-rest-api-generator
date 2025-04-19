@@ -6,7 +6,7 @@
 
 A CLI tool to instantly scaffold production-ready Node.js REST APIs with either CommonJS or ES Modules support.
 
-![CLI Demo](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDl6cGZqY3BmZ2Z6d2V1ZGN4bWJ6NnRjcHZ2eGJtZzB1eHZ6bGZ1biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT5LMHxhOfscxPfIfm/giphy.gif)
+<img src="https://github.com/user-attachments/assets/3cda5952-8970-43fa-97b9-34a968d2e5e3" />
 
 ## Features ✨
 
