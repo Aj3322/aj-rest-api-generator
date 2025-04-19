@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/aj-rest-api-generator)](https://npmjs.com/package/aj-rest-api-generator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js CI](https://github.com/yourusername/aj-rest-api-generator/actions/workflows/test.yml/badge.svg)](https://github.com/Aj3322/aj-rest-api-generator/actions/workflows/test.yml)
+[![Node.js CI](https://github.com/Aj3322/aj-rest-api-generator/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/Aj3322/aj-rest-api-generator/actions/workflows/npm-publish.yml)
 
 A CLI tool to instantly scaffold production-ready Node.js REST APIs with either CommonJS or ES Modules support.
 
