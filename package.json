@@ -1,6 +1,6 @@
 {
   "name": "aj-rest-api-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "🔥 A powerful and interactive CLI tool to scaffold REST API boilerplates in seconds.",
   "bin": {
     "aj": "./bin/aj.js"
@@ -48,8 +48,8 @@
     "node": ">=18.0.0"
   },
   "publishConfig": {
-  "access": "public"
- },
+    "access": "public"
+  },
   "dependencies": {
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
