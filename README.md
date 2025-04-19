@@ -96,6 +96,61 @@ project-root/
 └──  .prettierrc          # Prettier configuration
 ```
 
+#Example Endpoint
+
+---
+
+### 🩺 Health Check
+
+| Method | URL | Uses |
+|--------|-----|------|
+| `GET` | `/api/health` | Check if the server is alive |
+
+---
+
+### 👥 User Management
+
+| Method | URL | Uses |
+|--------|-----|------|
+| `POST` | `/api/users` | Create user |
+| `GET` | `/api/users` | List all users |
+| `GET` | `/api/users/:id` | Get user by ID |
+| `PUT` | `/api/users/:id` | Update user |
+| `DELETE` | `/api/users/:id` | Delete user |
+
+---
+
+### 🔐 Authentication
+
+| Method | URL | Uses |
+|--------|-----|------|
+| `POST` | `/api/auth/register` | User registration |
+| `POST` | `/api/auth/login` | User login |
+| `POST` | `/api/auth/refresh` | Refresh token |
+| `POST` | `/api/auth/logout` | User logout |
+
+---
+
+### 📊 Metrics
+
+| Method | URL | Uses |
+|--------|-----|------|
+| `GET` | `/api/metrics` | System metrics |
+| `GET` | `/api/metrics/requests` | Request statistics |
+
+---
+
+### 📚 Documentation
+
+| Method | URL | Uses |
+|--------|-----|------|
+| `GET` | `/api/docs` | API documentation (Swagger/OpenAPI) |
+| `GET` | `/api/docs/json` | OpenAPI spec (JSON) |
+| `GET` | `/api/docs/yaml` | OpenAPI spec (YAML) |
+
+---
+
+
 ## Development 🛠️
 
 1. Clone the repo:
