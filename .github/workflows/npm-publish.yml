@@ -26,8 +26,7 @@ jobs:
   publish-npm:
     name: Publish to npm
     needs: test  
-    runs-on: ubuntu-latest
-    if: github.event_name == 'release'  
+    runs-on: ubuntu-latest  
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
