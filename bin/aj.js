@@ -20,7 +20,7 @@ displayBanner();
 program
   .name('aj')
   .description('CLI tool for generating REST API boilerplate')
-  .version('1.0.0', '-v, --version', 'Show version');
+  .version('1.0.5', '-v, --version', 'Show version');
 
 program
   .command('create')
