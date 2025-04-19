@@ -1,0 +1,57 @@
+{
+  "name": "aj-rest-api-generator",
+  "version": "1.0.0",
+  "description": "🔥 A powerful and interactive CLI tool to scaffold REST API boilerplates in seconds.",
+  "bin": {
+    "aj": "./bin/aj.js"
+  },
+  "type": "module",
+  "main": "bin/aj.js",
+  "scripts": {
+    "dev": "node ./bin/aj.js create rest --name test-api --module",
+    "start": "node ./bin/aj.js",
+    "test": "echo \"⚠️ No tests defined yet\" && exit 0",
+    "lint": "eslint . --ext .js",
+    "prepublishOnly": "npm run test"
+  },
+  "keywords": [
+    "cli",
+    "rest",
+    "api",
+    "generator",
+    "nodejs",
+    "boilerplate",
+    "scaffold",
+    "aj-cli",
+    "rest-api-generator"
+  ],
+  "author": {
+    "name": "Ajay Kumar",
+    "email": "aj.developer@example.com",
+    "url": "https://github.com/Aj3322"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aj3322/aj-rest-api-generator.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Aj3322/aj-rest-api-generator/issues"
+  },
+  "homepage": "https://github.com/Aj3322/aj-rest-api-generator#readme",
+  "files": [
+    "bin",
+    "lib",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "figlet": "^1.8.1",
+    "fs-extra": "^11.3.0",
+    "inquirer": "^12.5.2"
+  }
+}
