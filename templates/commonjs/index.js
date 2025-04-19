@@ -18,9 +18,9 @@
 
 export const commonJsFiles = {
   'package.json': `{
-  "name": "rest-api",
+  "name": "{{projectName}}",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
@@ -195,7 +195,9 @@ app.use((err, req, res,) => {
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  logger.info(\`Server running in \${config.env} mode on port \${PORT}\`);
+  logger.info(\`🚀 Server running in \${config.env} mode on port \${PORT}\`);
+  console.log(\`📚 API Docs available at: http://localhost:\${PORT}/api/docs\`);
+  console.log(\`🩺 Health check available at: http://localhost:\${PORT}/api/health\`);
 });
 
 module.exports = app; // for testing`,

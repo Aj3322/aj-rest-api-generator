@@ -18,10 +18,10 @@ export const esmFolders = [
 
 export const esmFiles = {
   'package.json': `{
-  "name": "rest-api",
+  "name": "{{projectName}}",
   "version": "1.0.0",
-  "type": "module",
-  "main": "index.js",
+  "type": "{{moduleType}}",
+  "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
@@ -149,7 +149,10 @@ import YAML from 'yamljs';
 import logger from './utils/logger.js';
 import db from './config/database.js'; 
 import { errorResponse } from './utils/responseHandler.js';
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // Create Express app
 const app = express();
 
@@ -195,7 +198,9 @@ app.use((err, req, res) => {
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  logger.info(\`Server running in \${config.env} mode on port \${PORT}\`);
+  logger.info(\`🚀 Server running in \${config.env} mode on port \${PORT}\`);
+  console.log(\`📚 API Docs available at: http://localhost:\${PORT}/api/docs\`);
+  console.log(\`🩺 Health check available at: http://localhost:\${PORT}/api/health\`);
 });
 
 export default app; // for testing`,
